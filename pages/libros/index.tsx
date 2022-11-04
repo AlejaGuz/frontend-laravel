@@ -3,7 +3,7 @@ import Link from "next/link";
 //Las siguientes líneas son para llamar al API del backend
 export async function getStaticProps(){
     
-    const response = await fetch('http://127.0.0.1:8000/api/books')
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/books`)
     const data = await response.json();
 
     console.log(data);
@@ -35,7 +35,6 @@ const BookList = (/*esta es la variable de arriba de props*/{ books })=>{
             </ul>
             <Link href='/libros/create'>Create Book</Link> 
             <br/>
-            <Link href='/libros/1'>Show Book</Link> 
         </div>
     )
 }
